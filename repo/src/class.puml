@@ -1,0 +1,86 @@
+@startuml
+
+hide methods
+hide empty fields
+
+together {
+    class NodeService
+    class AclService #lightcyan
+    class ContentService #lightgreen
+    class FullTextSearchService  #lightblue
+}
+
+    class CacheManager
+
+    interface FullTextIndexer
+    class LuceneIndexer  #lightblue
+    class SolrIndexer  #lightblue
+
+together {
+    abstract class AbstractFullTextIndexer  #lightblue
+    interface FullTextSearcher  #lightblue
+}
+
+together {
+    abstract class AbstractJdbcDao
+    class RepositoryDao
+    class AclDAO  #lightcyan
+}
+
+together {
+    abstract class AbstractLuceneDAO #lightblue
+    class LuceneDao #lightblue
+    class SolrDao #lightblue
+    class MemoryLuceneDAO #lightblue
+}
+
+together {
+    interface ContentDao #lightgreen
+    class FileContentDao #lightgreen
+    class MemoryContentDao #lightgreen
+}
+
+    NodeService --> CacheManager
+    NodeService --> RepositoryDao
+    NodeService --> FullTextIndexer
+
+    AclService -> NodeService
+    AclService --> CacheManager
+    AclService --> AclDAO
+
+    ContentService -left> NodeService
+    ContentService --> ContentDao
+    ContentService --> FullTextIndexer
+
+    FullTextSearchService --> FullTextSearcher
+
+    AbstractLuceneDAO ..up|> FullTextSearcher
+    LuceneDao --up|> AbstractLuceneDAO
+    SolrDao --up|> AbstractLuceneDAO
+
+    AbstractFullTextIndexer .|> FullTextIndexer
+    SolrIndexer -up-|> AbstractFullTextIndexer
+    LuceneIndexer -up-|> AbstractFullTextIndexer
+    LuceneIndexer --> LuceneDao
+    LuceneIndexer --> RepositoryDao
+    LuceneIndexer --> ContentDao
+
+    SolrIndexer --> SolrDao
+
+    MemoryLuceneDAO --up|> LuceneDao
+
+    FileContentDao ..up|> ContentDao
+    MemoryContentDao ..up|> ContentDao
+
+    RepositoryDao --down|> AbstractJdbcDao
+    AclDAO --down|> AbstractJdbcDao
+
+'    class VersionService
+'    VersionService --> NodeService
+'    VersionService --> ContentService
+
+
+
+
+
+@enduml

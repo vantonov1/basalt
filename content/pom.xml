@@ -1,0 +1,41 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <artifactId>basalt-content</artifactId>
+    <packaging>jar</packaging>
+
+    <parent>
+	    <groupId>com.github.vantonov1</groupId>
+    	<artifactId>basalt</artifactId>
+        <version>1.0-SNAPSHOT</version>
+    </parent>
+
+    <properties>
+        <version.tika>1.15</version.tika>
+    </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>com.github.vantonov1</groupId>
+            <artifactId>basalt-repo</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+        <dependency>
+            <groupId>com.github.vantonov1</groupId>
+            <artifactId>basalt-repo</artifactId>
+            <classifier>tests</classifier>
+            <version>1.0-SNAPSHOT</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.tika</groupId>
+            <artifactId>tika-core</artifactId>
+            <version>${version.tika}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.tika</groupId>
+            <artifactId>tika-parsers</artifactId>
+            <version>${version.tika}</version>
+        </dependency>
+    </dependencies>
+</project>
