@@ -2,35 +2,35 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.github.vantonov1</groupId>
     <artifactId>basalt-all</artifactId>
-    <version>1.0</version>
+    <version>1.0.1-SNAPSHOT</version>
     <name>basalt-all</name>
 
     <parent>
         <groupId>com.github.vantonov1</groupId>
         <artifactId>basalt</artifactId>
-        <version>1.0</version>
+        <version>1.0.1-SNAPSHOT</version>
     </parent>
 
     <dependencies>
         <dependency>
             <groupId>com.github.vantonov1</groupId>
             <artifactId>basalt-repo</artifactId>
-            <version>1.0</version>
+            <version>1.0.1-SNAPSHOT</version>
         </dependency>
         <dependency>
             <groupId>com.github.vantonov1</groupId>
             <artifactId>basalt-content</artifactId>
-            <version>1.0</version>
+            <version>1.0.1-SNAPSHOT</version>
         </dependency>
         <dependency>
             <groupId>com.github.vantonov1</groupId>
             <artifactId>basalt-fulltext</artifactId>
-            <version>1.0</version>
+            <version>1.0.1-SNAPSHOT</version>
         </dependency>
         <dependency>
             <groupId>com.github.vantonov1</groupId>
             <artifactId>basalt-acl</artifactId>
-            <version>1.0</version>
+            <version>1.0.1-SNAPSHOT</version>
         </dependency>
     </dependencies>
 </project>

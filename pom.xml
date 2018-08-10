@@ -3,7 +3,7 @@
     <groupId>com.github.vantonov1</groupId>
     <artifactId>basalt</artifactId>
     <packaging>pom</packaging>
-    <version>1.0</version>
+    <version>1.0.1-SNAPSHOT</version>
     <name>Basalt</name>
     <description>Implementation of document-oriented repository on top of relational DBMS</description>
     <url>https://github.com/vantonov1/basalt</url>
@@ -144,6 +144,6 @@
         <url>https://github.com/vantonov1/basalt</url>
         <connection>scm:git:git@github.com:vantonov1/basalt.git</connection>
         <developerConnection>scm:git:git@github.com:vantonov1/basalt.git</developerConnection>
-      <tag>basalt-1.0</tag>
+      <tag>HEAD</tag>
   </scm>
 </project>

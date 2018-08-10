@@ -6,20 +6,20 @@
     <parent>
 	    <groupId>com.github.vantonov1</groupId>
     	<artifactId>basalt</artifactId>
-        <version>1.0</version>
+        <version>1.0.1-SNAPSHOT</version>
     </parent>
 
     <dependencies>
         <dependency>
             <groupId>com.github.vantonov1</groupId>
             <artifactId>basalt-repo</artifactId>
-            <version>1.0</version>
+            <version>1.0.1-SNAPSHOT</version>
         </dependency>
         <dependency>
             <groupId>com.github.vantonov1</groupId>
             <artifactId>basalt-repo</artifactId>
             <classifier>tests</classifier>
-            <version>1.0</version>
+            <version>1.0.1-SNAPSHOT</version>
             <scope>test</scope>
         </dependency>
     </dependencies>
