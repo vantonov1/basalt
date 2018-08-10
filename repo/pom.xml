@@ -9,10 +9,6 @@
         <version>1.0.1-SNAPSHOT</version>
     </parent>
 
-    <properties>
-        <version.tika>1.15</version.tika>
-    </properties>
-
     <dependencies>
         <dependency>
             <groupId>org.springframework.boot</groupId>
