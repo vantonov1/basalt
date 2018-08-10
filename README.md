@@ -15,7 +15,16 @@ Basalt does not manage transactions, but requires them. It uses optimistic locki
 Basalt was tested on MySQL, PostgresSQL, MS SQL and HSQLDB. Most probably it will work on other relational databases, it uses simple SQL, but indexing schema could be inefficient, and there always subtle differences...
 
 ## Getting started
-- Add basalt-all to the dependencies
+- Add basalt-all to the dependencies (Or you could select modules needed, see [More info](https://github.com/vantonov1/basalt#more-info)). It is on the Maven Central, so for Maven just add
+
+```xml
+        <dependency>
+            <groupId>com.github.vantonov1</groupId>
+            <artifactId>basalt-all</artifactId>
+            <version>1.0</version>
+        </dependency>
+```
+
 - Configure database. Lets use in-memory database HSqlDB - just add org.hsqldb:hsqldb to dependencies, Spring Boot
         automatically creates DataSource
 - We are going to store and index content in memory, so add two rows to application.properties (in real code, set them to paths on the local filesystem)
