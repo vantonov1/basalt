@@ -17,6 +17,12 @@ import java.util.Map;
 import java.util.stream.Collectors;
 import java.util.stream.StreamSupport;
 
+/**
+ * Versioning of {@link Node}.
+ * Every node could have a collection of immutable version nodes, last of versions is "current". It is common practice to create a version on every node update, so node could be replaced by its current version to have immutable reference.
+ * Real node could be retrieved from version.
+ * <p></p>Versions are skipped by search, but version properties could be retrieved by id as usual. Version node is immutable - it could not be updated or deleted</p>
+ */
 @Component
 public class VersionService {
     private static final String PROP_CURRENT_VERSION = "__currentVersion";

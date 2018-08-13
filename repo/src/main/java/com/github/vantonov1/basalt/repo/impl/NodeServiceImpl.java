@@ -114,7 +114,7 @@ public class NodeServiceImpl implements NodeService, SearchService {
 
     @Override
     public void updateProperties(Node updated, boolean deleteOld) {
-        checkParam(updated, "nodes are null");
+        checkParam(updated, "node is null");
         if (updated.id != null) {
             cacheManager.remove(NODES_CACHE, updated.id);
             repositoryDAO.updateNode(updated.id, updated, deleteOld);
@@ -130,9 +130,7 @@ public class NodeServiceImpl implements NodeService, SearchService {
         if (!nodes.isEmpty()) {
             final List<String> ids = nodes.stream().map((Node node) -> node != null ? node.id : null).collect(Collectors.toList());
             repositoryDAO.updateProperties(nodes, getProperties(ids), deleteOld);
-            for (Node node : nodes) {
-                cacheManager.remove(NODES_CACHE, node.id);
-            }
+            ids.forEach(id -> cacheManager.remove(NODES_CACHE, id));
             if (fullTextIndexer != null) {
                 fullTextIndexer.update(nodes, deleteOld);
             }

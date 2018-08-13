@@ -258,6 +258,9 @@ public class RepositoryDAO extends AbstractJdbcDAO {
         if (old == null) {
             throw new IllegalArgumentException("node not found: " + id);
         }
+        if (Boolean.TRUE.equals(old.version)) {
+            throw new IllegalArgumentException("version node could not be updated: " + id);
+        }
         if (node.type != null && !node.type.equals(old.type)) {
             update("update bst_node set class = ? where id = ?", (node.type), id);
         }
@@ -297,6 +300,9 @@ public class RepositoryDAO extends AbstractJdbcDAO {
                 throw new IllegalArgumentException("node not found " + id);
             }
             final Node oldNode = old.get();
+            if (Boolean.TRUE.equals(oldNode.version)) {
+                throw new IllegalArgumentException("version node could not be updated: " + id);
+            }
             if (oldNode.hasProperties()) {
                 updateProperties(id, node, oldNode, updateBatch, insertBatch, deleteBatch, deleteValuesBatch);
                 if (deleteOld && oldNode.hasProperties()) {
@@ -318,12 +324,12 @@ public class RepositoryDAO extends AbstractJdbcDAO {
     }
 
     public void deleteNode(String id) {
-        update("delete from bst_node where id = ?", id);
+        update("delete from bst_node where id = ? and version is null", id);
     }
 
     public void deleteNodes(Collection<String> ids) {
         if (ids != null && !ids.isEmpty()) {
-            new Query("delete from bst_node").where("id", ids).update();
+            new Query("delete from bst_node").where("id", ids).noVersions().update();
         }
     }
 
